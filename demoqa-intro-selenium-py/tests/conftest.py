@@ -5,7 +5,6 @@ import urllib3
 from selenium import webdriver
 from selenium.common import WebDriverException
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.common.options import PageLoadStrategy
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
@@ -30,22 +29,37 @@ def driver():
 
 
 # ---------------------------------------------------------------------------------------------------------------------
-@pytest.fixture(params=["firefox", "edge"])
+def browsers():
+    return ["chrome", "firefox", "edge"]
+
+
+def getBrowser(request):
+    return request.param
+
+
+@pytest.fixture(params=browsers())
 def driver_selenium_server(request):
     # Assuming you are running a local Selenium Grid or Standalone server
     global driver
     global options
+    global browser
     options = None
     driver = None
     if request.param == "chrome":
         options = ChromeOptions()
         options.page_load_strategy = 'none'
+        browser = request.param
+        #print(f"\n********  browser executed : {request.param}  ********")
     elif request.param == "firefox":
         options = FirefoxOptions()
         options.page_load_strategy = 'none'
+        browser = request.param
+        #print(f"\n********  browser executed : {request.param}  ********")
     elif request.param == "edge":
         options = EdgeOptions()
         options.page_load_strategy = 'none'
+        browser = request.param
+        #print(f"\n********  browser executed : {request.param}  ********")
     else:
         print("provide a valid browser name from this list chrome/firefox")
     driver = webdriver.Remote(
@@ -53,7 +67,7 @@ def driver_selenium_server(request):
         options=options
     )
     # return the web driver instance
-    yield driver
+    yield driver, browser
     # set implicit wait to 10s
     driver.implicitly_wait(10)
     # quit the web driver for cleanup

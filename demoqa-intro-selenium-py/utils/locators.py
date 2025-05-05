@@ -19,3 +19,7 @@ class LoginPageLocators(object):
     UserName_input_locator = (By.ID, 'userName')
     Password_input_locator = (By.ID, 'password')
     button_login_locator = (By.XPATH, '//*[@id="login"]')
+
+
+class DashboardPageLocators(object):
+    dashboard_username_locator = (By.ID, 'userName-value')
