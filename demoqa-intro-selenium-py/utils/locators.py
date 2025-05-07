@@ -14,11 +14,13 @@ class RegisterPageLocators(object):
     # Locator for the reCAPTCHA checkbox INSIDE the iframe
     RECAPTCHA_CHECKBOX_LOCATOR = (By.CSS_SELECTOR, "div.recaptcha-checkbox-border")
 
-
 class LoginPageLocators(object):
     UserName_input_locator = (By.ID, 'userName')
     Password_input_locator = (By.ID, 'password')
     button_login_locator = (By.XPATH, '//*[@id="login"]')
+    # Locator for error messages
+    error_message_locator = (By.XPATH, '//*[@id="name"]')
+    input_error_message_locator = (By.CLASS_NAME, 'is-invalid')
 
 
 class DashboardPageLocators(object):

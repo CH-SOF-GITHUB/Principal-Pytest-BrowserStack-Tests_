@@ -12,54 +12,61 @@ from selenium.webdriver.safari.options import Options as SafariOptions
 urllib3.disable_warnings()
 
 
-# conftest driver control web driver ----------------------------------------------------------------------------------
-@pytest.fixture()
-def driver():
-    # Initialize the web driver in instance
-    b = webdriver.Chrome()
+def browsers():
+    return ["chrome", "firefox", "edge"]
 
+# conftest driver control web driver ----------------------------------------------------------------------------------
+@pytest.fixture(params=browsers())
+def driver_initialize(request):
+    b = None
+    browser = None
+    # Initialize the web driver in instance
+    if request.param == "chrome":
+        b = webdriver.Chrome()
+        browser = request.param
+    elif request.param == "firefox":
+        b = webdriver.Firefox()
+        browser = request.param
+    elif request.param == "edge":
+        b = webdriver.Edge()
+        browser = request.param
+    else:
+        print("web driver version not supported")
     # Make its calls wait up to 10s for elements to appear
     b.implicitly_wait(10)
 
     # Return the WebDriver instance for the setup
-    yield b
+    yield b, browser
 
     # Quit the WebDriver instance for the cleanup
     b.quit()
 
 
 # ---------------------------------------------------------------------------------------------------------------------
-def browsers():
-    return ["chrome", "firefox", "edge"]
-
-
+"""
 def getBrowser(request):
     return request.param
-
+"""
 
 @pytest.fixture(params=browsers())
 def driver_selenium_server(request):
     # Assuming you are running a local Selenium Grid or Standalone server
     global driver
     global options
-    global browser
     options = None
     driver = None
     if request.param == "chrome":
         options = ChromeOptions()
         options.page_load_strategy = 'none'
-        browser = request.param
-        #print(f"\n********  browser executed : {request.param}  ********")
+        print(f"\n********  browser executed : {request.param}  ********")
     elif request.param == "firefox":
         options = FirefoxOptions()
         options.page_load_strategy = 'none'
-        browser = request.param
-        #print(f"\n********  browser executed : {request.param}  ********")
+        print(f"\n********  browser executed : {request.param}  ********")
     elif request.param == "edge":
         options = EdgeOptions()
         options.page_load_strategy = 'none'
-        browser = request.param
-        #print(f"\n********  browser executed : {request.param}  ********")
+        print(f"\n********  browser executed : {request.param}  ********")
     else:
         print("provide a valid browser name from this list chrome/firefox")
     driver = webdriver.Remote(
@@ -67,7 +74,7 @@ def driver_selenium_server(request):
         options=options
     )
     # return the web driver instance
-    yield driver, browser
+    yield driver
     # set implicit wait to 10s
     driver.implicitly_wait(10)
     # quit the web driver for cleanup

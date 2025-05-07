@@ -5,4 +5,6 @@ class HomePageDemoQa:
 
     def open_page(self, url):
         self.driver.get(url)
-        print(f"\n******** demoqa page opened with url: {url} ********")
+        self.driver.maximize_window()
+        self.driver.implicitly_wait(10)
+        print(f"\ndemoqa page opened with url: {url}")
