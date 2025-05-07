@@ -26,7 +26,7 @@ DEMO_QA_PATH_SCREENSHOT = os.environ.get("DEMOQA_PATH_SCREENSHOT")
     # TC1: username invalid and password valid
     ("chdemoqa", "Admin1234!", "Invalid username or password!"),
     # TC2: username valid and password invalid
-    # ("BenSalehdemoqa", "A1234!", "Invalid username or password!"),
+    ("BenSalehdemoqa", "", ""),
     # TC3: username invalid and password invalid
     # ("TarekDemo", "Aze1234!", "Invalid username or password!"),
     # TC4: username vide and password vide
@@ -63,11 +63,14 @@ def test_basic_demoqa_login_invalid_credentials(driver_initialize, expected_user
                 actualErrorMessage = login_page.get_error_message()
                 assert actualErrorMessage == expected_errorMsg
                 print(f"\nerror message is : {actualErrorMessage}")
+        elif expected_username != "" or expected_pwd != "":
+            inputErrorMessages = login_page.inputs_error_message()
+            assert len(inputErrorMessages) == 1
         else:
             inputErrorMessages = login_page.inputs_error_message()
             if len(inputErrorMessages) > 0:
-                assert inputErrorMessages[0].get_attribute("placeholder") == "UserName"
-                assert inputErrorMessages[1].get_attribute("placeholder") == "Password"
+                assert inputErrorMessages[0].get_attribute("value") == expected_username
+                assert inputErrorMessages[1].get_attribute("value") == expected_pwd
 
         setStatus(status="Passed", request=request)
 

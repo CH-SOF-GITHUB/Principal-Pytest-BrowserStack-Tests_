@@ -10,10 +10,22 @@ TC004: Test login with invalid credentials:
 ("chdemoqa", "Admin1234!", "Invalid username or password!")
 ("BenSalehdemoqa", "A1234!", "Invalid username or password!"),
 ("TarekDemo", "Aze1234!", "Invalid username or password!"),
+("TarekDemo", "", ""),
+("", "A1234!", ""),
 ("", "", "")
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[chrome-chdemoqa-Admin1234!-Invalid username or password!] 
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[chrome---] 
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[firefox-chdemoqa-Admin1234!-Invalid username or password!] 
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[firefox---] 
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge-chdemoqa-Admin1234!-Invalid username or password!] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge---]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[chrome-chdemoqa-Admin1234!-Invalid username or password!] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[chrome-BenSalehdemoqa--] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[chrome---] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[firefox-chdemoqa-Admin1234!-Invalid username or password!] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[firefox-BenSalehdemoqa--] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[firefox---] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge-chdemoqa-Admin1234!-Invalid username or password!] 
+test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge-BenSalehdemoqa--] 
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge---] 
