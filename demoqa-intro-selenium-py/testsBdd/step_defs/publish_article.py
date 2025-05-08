@@ -1,9 +1,13 @@
 from pytest_bdd import scenario, given, when, then
+from selenium import webdriver
+from seleniumbase import Driver
 
+
+driver = Driver()
 
 @given("I'm an author user")
 def step_impl():
-    raise NotImplementedError(u'STEP: Given I\'m an author user')
+    driver.open("https://www.python.org")
 
 
 @given("I have an article")
