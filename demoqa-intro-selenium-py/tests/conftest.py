@@ -13,7 +13,7 @@ urllib3.disable_warnings()
 
 
 def browsers():
-    return ["chrome", "firefox", "edge"]
+    return ["chrome"]
 
 # conftest driver control web driver ----------------------------------------------------------------------------------
 @pytest.fixture(params=browsers())

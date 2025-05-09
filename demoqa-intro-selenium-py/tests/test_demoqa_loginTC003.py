@@ -62,9 +62,9 @@ def test_basic_demoqa_login_valid_credentials(driver_initialize, expected_userna
 
         # take a screenshot for the final results
         # driver.save_screenshot(
-        #     "C:\\Users\\chaker\\PycharmProjects\\pytest-browserstack\\demoqa-intro-selenium-py\\resultsImages\\success_" + browser + "_demoqa_login__valid_credentials__" + expected_username + expected_pwd + ".png")
+        #     "C:\\Users\\chaker\\PycharmProjects\\pytest-browserstack\\demoqa-intro-selenium-py\\screenshots\\success_" + browser + "_demoqa_login__valid_credentials__" + expected_username + expected_pwd + ".png")
 
     except Exception as e:
         # driver.save_screenshot(
-        #    "C:\\Users\\chaker\\PycharmProjects\\pytest-browserstack\\demoqa-intro-selenium-py\\resultsImages\\bug_" + browser + "_demoqa_login__valid_credentials__" + expected_username + expected_pwd + ".png")
+        #    "C:\\Users\\chaker\\PycharmProjects\\pytest-browserstack\\demoqa-intro-selenium-py\\screenshots\\bug_" + browser + "_demoqa_login__valid_credentials__" + expected_username + expected_pwd + ".png")
         raise Exception(f"Incomplete Test : {str(e)}")
