@@ -28,7 +28,7 @@ class LoginPageDemoQA(HomePageDemoQa):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located(LoginPageLocators.button_login_locator))
         element.click()
-        print("\nSTEP 3: login button clicked !")
+        print("\nSTEP 3: login button clicked")
 
     # return the error messages
     def error_message(self):
