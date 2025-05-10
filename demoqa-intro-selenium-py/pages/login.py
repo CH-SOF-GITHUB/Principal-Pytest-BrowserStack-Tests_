@@ -16,19 +16,19 @@ class LoginPageDemoQA(HomePageDemoQa):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located(LoginPageLocators.UserName_input_locator))
         element.send_keys(username)
-        print(f"\nusername '{username}' entered")
+        print(f"\nSTEP 1: username '{username}' entered")
 
     def enter_password(self, password):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located(LoginPageLocators.Password_input_locator))
         element.send_keys(password)
-        print(f"\npassword '{password}' entered")
+        print(f"\nSTEP 2: password '{password}' entered")
 
     def click_login_button(self):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located(LoginPageLocators.button_login_locator))
         element.click()
-        print("\nlogin button clicked !")
+        print("\nSTEP 3: login button clicked !")
 
     # return the error messages
     def error_message(self):

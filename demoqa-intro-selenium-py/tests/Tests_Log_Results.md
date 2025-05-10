@@ -29,3 +29,22 @@ test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[fir
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge-chdemoqa-Admin1234!-Invalid username or password!] 
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge-BenSalehdemoqa--] 
 test_fails_demoqa_loginTC004.py::test_basic_demoqa_login_invalid_credentials[edge---] 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TC001 books: get list of books in profile
+test_fetch_list_booksTC001.py::test_fetch_list__books[chrome] 
+
+============================= 1 passed in 17.54s ==============================
+BUG-PASS   [100%]
+demoqa page opened with url: https://demoqa.com/login
+Test Case STEPS:
+STEP 1: username 'ch_demoqa' entered
+STEP 2: password 'Admin1234!' entered
+STEP 3: login button clicked !
+------------- Loop through the 2 arrays of books to assert with expected title of book -------------
+actual book: 'Git Pocket Guide' == expected book: 'Git Pocket Guide'
+actual book: 'Learning JavaScript Design Patterns' == expected book: 'Learning JavaScript Design Patterns'
+actual book: 'Designing Evolvable Web APIs with ASP.NET' == expected book: 'Designing Evolvable Web APIs with ASP.NET'
+actual book: 'Speaking JavaScript' == expected book: 'Speaking JavaScript'
+actual book: 'Programming JavaScript Applications' == expected book: 'Programming JavaScript Applications'
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
